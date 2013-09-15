@@ -1,0 +1,345 @@
+@font-face {
+	font-family: 'mallrat_font';
+	src:url('fonts/mallrat_font.eot');
+	src:url('fonts/mallrat_font.eot?#iefix') format('embedded-opentype'),
+		url('fonts/mallrat_font.woff') format('woff'),
+		url('fonts/mallrat_font.ttf') format('truetype'),
+		url('fonts/mallrat_font.svg#mallrat_font') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'mallrat_font';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-house, .icon-bookmark, .icon-cog, .icon-search, .icon-pencil, .icon-checkmark, .icon-clipboard, .icon-export, .icon-star, .icon-flag, .icon-plus, .icon-minus, .icon-menu, .icon-arrow-down, .icon-arrow-up, .icon-calendar, .icon-trashcan, .icon-comment, .icon-location, .icon-adjust, .icon-contrast, .icon-eye, .icon-diamond, .icon-soccer, .icon-badge, .icon-calendar-2, .icon-phone, .icon-coffee, .icon-monitor, .icon-book, .icon-womens_fashions, .icon-home, .icon-health_beauty, .icon-wireframe, .icon-unisex, .icon-handicap, .icon-footwear, .icon-team_agent, .icon-stroller, .icon-foodcourt, .icon-food_services, .icon-stairs, .icon-split_screen, .icon-eyewear, .icon-floor, .icon-specialty_retail, .icon-skytrain, .icon-eyedroppper, .icon-escalator, .icon-security, .icon-restroom, .icon-entrance, .icon-elevator, .icon-restaurants, .icon-playarea, .icon-customer_service, .icon-bus, .icon-atm, .icon-mens_fashons, .icon-phone-2, .icon-medical, .icon-layer, .icon-kiosk, .icon-map, .icon-users, .icon-user-add, .icon-user, .icon-star-2, .icon-mobile, .icon-music, .icon-checkbox, .icon-picture, .icon-pictures, .icon-pictures-2, .icon-locked, .icon-unlocked, .icon-vcard, .icon-credit-card, .icon-envelope, .icon-exit, .icon-cart, .icon-arrow-right, .icon-arrow-left, .icon-clock, .icon-globe, .icon-target, .icon-zoom-in, .icon-grid-view, .icon-list, .icon-cw, .icon-arrow-down-2, .icon-arrow-down-3, .icon-dashboard_icon, .icon-user_profile, .icon-tools, .icon-box, .icon-indoor_nav, .icon-touch_routing, .icon-help_wanted, .icon-tag, .icon-back, .icon-list-2 {
+	font-family: 'mallrat_font';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-house:before {
+	content: "\e000";
+}
+.icon-bookmark:before {
+	content: "\e002";
+}
+.icon-cog:before {
+	content: "\e001";
+}
+.icon-search:before {
+	content: "\e003";
+}
+.icon-pencil:before {
+	content: "\e005";
+}
+.icon-checkmark:before {
+	content: "\e006";
+}
+.icon-clipboard:before {
+	content: "\e007";
+}
+.icon-export:before {
+	content: "\e008";
+}
+.icon-star:before {
+	content: "\e00c";
+}
+.icon-flag:before {
+	content: "\e00d";
+}
+.icon-plus:before {
+	content: "\e00e";
+}
+.icon-minus:before {
+	content: "\e00f";
+}
+.icon-menu:before {
+	content: "\e010";
+}
+.icon-arrow-down:before {
+	content: "\e011";
+}
+.icon-arrow-up:before {
+	content: "\e012";
+}
+.icon-calendar:before {
+	content: "\e014";
+}
+.icon-trashcan:before {
+	content: "\e013";
+}
+.icon-comment:before {
+	content: "\e015";
+}
+.icon-location:before {
+	content: "\e004";
+}
+.icon-adjust:before {
+	content: "\e016";
+}
+.icon-contrast:before {
+	content: "\e017";
+}
+.icon-eye:before {
+	content: "\e019";
+}
+.icon-diamond:before {
+	content: "\e02e";
+}
+.icon-soccer:before {
+	content: "\e02f";
+}
+.icon-badge:before {
+	content: "\e030";
+}
+.icon-calendar-2:before {
+	content: "\e01d";
+}
+.icon-phone:before {
+	content: "\e031";
+}
+.icon-coffee:before {
+	content: "\e032";
+}
+.icon-monitor:before {
+	content: "\e033";
+}
+.icon-book:before {
+	content: "\e034";
+}
+.icon-womens_fashions:before {
+	content: "\e009";
+}
+.icon-home:before {
+	content: "\e00a";
+}
+.icon-health_beauty:before {
+	content: "\e00b";
+}
+.icon-wireframe:before {
+	content: "\e01a";
+}
+.icon-unisex:before {
+	content: "\e01b";
+}
+.icon-handicap:before {
+	content: "\e01c";
+}
+.icon-footwear:before {
+	content: "\e01e";
+}
+.icon-team_agent:before {
+	content: "\e01f";
+}
+.icon-stroller:before {
+	content: "\e020";
+}
+.icon-foodcourt:before {
+	content: "\e021";
+}
+.icon-food_services:before {
+	content: "\e022";
+}
+.icon-stairs:before {
+	content: "\e023";
+}
+.icon-split_screen:before {
+	content: "\e024";
+}
+.icon-eyewear:before {
+	content: "\e025";
+}
+.icon-floor:before {
+	content: "\e026";
+}
+.icon-specialty_retail:before {
+	content: "\e027";
+}
+.icon-skytrain:before {
+	content: "\e028";
+}
+.icon-eyedroppper:before {
+	content: "\e029";
+}
+.icon-escalator:before {
+	content: "\e02a";
+}
+.icon-security:before {
+	content: "\e02b";
+}
+.icon-restroom:before {
+	content: "\e02c";
+}
+.icon-entrance:before {
+	content: "\e02d";
+}
+.icon-elevator:before {
+	content: "\e035";
+}
+.icon-restaurants:before {
+	content: "\e036";
+}
+.icon-playarea:before {
+	content: "\e037";
+}
+.icon-customer_service:before {
+	content: "\e038";
+}
+.icon-bus:before {
+	content: "\e039";
+}
+.icon-atm:before {
+	content: "\e03a";
+}
+.icon-mens_fashons:before {
+	content: "\e03b";
+}
+.icon-phone-2:before {
+	content: "\e03c";
+}
+.icon-medical:before {
+	content: "\e03d";
+}
+.icon-layer:before {
+	content: "\e03e";
+}
+.icon-kiosk:before {
+	content: "\e03f";
+}
+.icon-map:before {
+	content: "\e040";
+}
+.icon-users:before {
+	content: "\e041";
+}
+.icon-user-add:before {
+	content: "\e042";
+}
+.icon-user:before {
+	content: "\e043";
+}
+.icon-star-2:before {
+	content: "\e044";
+}
+.icon-mobile:before {
+	content: "\e045";
+}
+.icon-music:before {
+	content: "\e046";
+}
+.icon-checkbox:before {
+	content: "\e047";
+}
+.icon-picture:before {
+	content: "\e018";
+}
+.icon-pictures:before {
+	content: "\e048";
+}
+.icon-pictures-2:before {
+	content: "\e049";
+}
+.icon-locked:before {
+	content: "\e04a";
+}
+.icon-unlocked:before {
+	content: "\e04b";
+}
+.icon-vcard:before {
+	content: "\e04c";
+}
+.icon-credit-card:before {
+	content: "\e04d";
+}
+.icon-envelope:before {
+	content: "\e04e";
+}
+.icon-exit:before {
+	content: "\e04f";
+}
+.icon-cart:before {
+	content: "\e050";
+}
+.icon-arrow-right:before {
+	content: "\e051";
+}
+.icon-arrow-left:before {
+	content: "\e052";
+}
+.icon-clock:before {
+	content: "\e053";
+}
+.icon-globe:before {
+	content: "\e054";
+}
+.icon-target:before {
+	content: "\e055";
+}
+.icon-zoom-in:before {
+	content: "\e056";
+}
+.icon-grid-view:before {
+	content: "\e057";
+}
+.icon-list:before {
+	content: "\e058";
+}
+.icon-cw:before {
+	content: "\e059";
+}
+.icon-arrow-down-2:before {
+	content: "\e05a";
+}
+.icon-arrow-down-3:before {
+	content: "\e05b";
+}
+.icon-dashboard_icon:before {
+	content: "\e05c";
+}
+.icon-user_profile:before {
+	content: "\e05d";
+}
+.icon-tools:before {
+	content: "\e05e";
+}
+.icon-box:before {
+	content: "\e05f";
+}
+.icon-indoor_nav:before {
+	content: "\e060";
+}
+.icon-touch_routing:before {
+	content: "\e061";
+}
+.icon-help_wanted:before {
+	content: "\e062";
+}
+.icon-tag:before {
+	content: "\e063";
+}
+.icon-back:before {
+	content: "\e064";
+}
+.icon-list-2:before {
+	content: "\e066";
+}
