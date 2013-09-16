@@ -82,9 +82,11 @@
  */
 @protocol MBTouchDelegate <NSObject>
 
-- (id)entityContaining:(CGPoint)point;
-- (void)highlightEntity:(id)entity;
-- (void)unhighlightEntity:(id)entity;
-- (void)selectEntity:(id)entity;
+/**
+ Tells the delegate that a tap ocurred.
+ 
+ @param location The location in map coordinates where the tap ocurred.
+ */
+- (void)tapOnMapLocation:(CGPoint)location;
 
 @end

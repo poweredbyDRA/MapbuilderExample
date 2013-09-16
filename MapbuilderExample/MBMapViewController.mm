@@ -315,24 +315,8 @@
 
 #pragma mark MBTouchDelegate
 
-- (id)entityContaining:(CGPoint)point {
-    return [NSValue valueWithCGPoint:point];
-}
-
-- (void)highlightEntity:(id)entity {
-}
-
-- (void)unhighlightEntity:(id)entity {
-}
-
-- (void)selectEntity:(id)entity {
-    if ([entity isKindOfClass:[MBStore class]]) {
-        MBStore* store = entity;
-        [self addPathStore:store];
-    } else if ([entity isKindOfClass:[NSValue class]]) {
-        NSValue* value = entity;
-        [self addPathLocation:value.CGPointValue];
-    }
+- (void)tapOnMapLocation:(CGPoint)location; {
+    [self addPathLocation:location];
 }
 
 
