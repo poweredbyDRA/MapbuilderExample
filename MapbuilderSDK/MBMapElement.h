@@ -35,7 +35,7 @@ typedef enum {
 @property (nonatomic, retain) NSValue* location;
 
 /**
- The type of map element. Can be one of `MBMapElementStore` for stores, 
+ The type of map element. Can be one of `MBMapElementStore` for regions, 
  `MBMapElementKiosk` got kiosks, `MBMapElementInside` for element on the main
  walking area, `MBMapElementOutside` for elements outside of the main walking
  area, and `MBMapElementConnector` for elements that connect two or more

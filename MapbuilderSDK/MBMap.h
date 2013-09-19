@@ -10,7 +10,7 @@
 @class MBPath;
 @class MBPathList;
 @class MBPolygon;
-@class MBStore;
+@class MBRegion;
 
 
 /**
@@ -100,17 +100,17 @@
                       toLocation:(CGPoint)loc2 inFloor:(MBFloor*)floor2;
 
 /**
- Finds a path list from a location to a store.
+ Finds a path list from a location to a region.
  
  @param loc The initial location.
  @param floor The initial floor.
- @param store The target store.
+ @param region The target region.
  
  @return An `MBPathList` with a series of paths between the initial location
- and the store, or an empty path list if no such path exists.
+ and the region, or an empty path list if no such path exists.
  */
 - (MBPathList*)pathsFromLocation:(CGPoint)loc inFloor:(MBFloor*)floor
-                         toStore:(MBStore*)store;
+                         toRegion:(MBRegion*)region;
 
 /**
  Finds a path list from a location to a map element.

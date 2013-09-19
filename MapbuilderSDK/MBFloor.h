@@ -5,7 +5,7 @@
 
 @class MBMapElement;
 @class MBPolygon;
-@class MBStore;
+@class MBRegion;
 @class MBVenue;
 
 
@@ -51,9 +51,9 @@
 @property (nonatomic, retain) MBVenue* venue;
 
 /**
- All the stores in the floor.
+ All the regions in the floor.
  */
-@property (nonatomic, retain) NSArray* stores;
+@property (nonatomic, retain) NSArray* regions;
 
 /**
  All the map elements in the floor.

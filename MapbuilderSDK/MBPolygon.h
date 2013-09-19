@@ -5,7 +5,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 @class MBFloor;
-@class MBStore;
+@class MBRegion;
 
 /**
  `MBPolygon` represents a polygon on the map.
@@ -38,8 +38,8 @@
 @property (nonatomic, retain) MBFloor* floor;
 
 /**
- The store attached to the polygon, if any.
+ The region attached to the polygon, if any.
  */
-@property (nonatomic, retain) MBStore* store;
+@property (nonatomic, retain) MBRegion* region;
 
 @end

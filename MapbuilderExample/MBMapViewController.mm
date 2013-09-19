@@ -30,9 +30,8 @@
 #import "MBPathList.h"
 #import "MBPinView.h"
 #import "MBPolygon.h"
-#import "MBStore.h"
-#import "MBStoreLabel.h"
-#import "MBVendor.h"
+#import "MBRegion.h"
+#import "MBRegionLabel.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -51,7 +50,7 @@
     NSMutableArray* _searchResults;
     NSMutableDictionary* _mapElementsByName;
     NSMutableArray* _mapElementViews;
-    NSMutableArray* _storeLabels;
+    NSMutableArray* _regionLabels;
 }
 
 - (void)setVenue:(MBVenue *)venue {
@@ -65,7 +64,7 @@
     
     if (self.isViewLoaded) {
         [self createMapElements];
-        [self createStoreLabels];
+        [self createRegionLabels];
     }
 }
 
@@ -99,7 +98,7 @@
     
     if (self.isViewLoaded) {
         [self createMapElements];
-        [self createStoreLabels];
+        [self createRegionLabels];
     }
     
     _mapView.floor = _currentFloor;
@@ -235,11 +234,11 @@
     _mapView.pathList = [_map pathsFromLocation:_origin inFloor:_currentFloor toMapElement:element];
 }
 
-- (void)addPathStore:(MBStore*)store {
+- (void)addPathRegion:(MBRegion*)region {
     if (!_originSet)
         return;
     
-    _mapView.pathList = [_map pathsFromLocation:_origin inFloor:_currentFloor toStore:store];
+    _mapView.pathList = [_map pathsFromLocation:_origin inFloor:_currentFloor toRegion:region];
 }
 
 - (void)addPathElement:(MBMapElement*)element {
@@ -281,7 +280,7 @@
     _searchResults = [NSMutableArray array];
     
     [self createMapElements];
-    [self createStoreLabels];
+    [self createRegionLabels];
 }
 
 - (void)createMapElements {
@@ -298,17 +297,18 @@
     }
 }
 
-- (void)createStoreLabels {
-    for (MBStoreLabel* label in _storeLabels)
+- (void)createRegionLabels {
+    for (MBRegionLabel* label in _regionLabels)
         [_mapView removeAnnotation:label];
     
-    _storeLabels = [NSMutableArray array];
-    for (MBStore* store in _currentFloor.stores) {
-        MBStoreLabel* label = [[MBStoreLabel alloc] init];
-        label.store = store;
+    _regionLabels = [NSMutableArray array];
+    for (MBRegion* region in _currentFloor.regions) {
+        MBRegionLabel* label = [[MBRegionLabel alloc] init];
+        label.map = _map;
+        label.region = region;
         [label sizeToFit];
         [_mapView addAnnotation:label];
-        [_storeLabels addObject:label];
+        [_regionLabels addObject:label];
     }
 }
 
@@ -336,9 +336,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID];
     
     id item = [_searchResults objectAtIndex:indexPath.row];
-    if ([item isKindOfClass:[MBStore class]]) {
-        MBStore* store = item;
-        cell.textLabel.text = store.vendor.name;
+    if ([item isKindOfClass:[MBRegion class]]) {
+        MBRegion* region = item;
+        cell.textLabel.text = region.name;
     } else if ([item isKindOfClass:[MBMapElement class]]) {
         MBMapElement* mapElement = item;
         cell.textLabel.text = mapElement.name;
@@ -353,10 +353,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [_searchResults objectAtIndex:indexPath.row];
-    if ([item isKindOfClass:[MBStore class]]) {
-        MBStore* store = item;
-        [self addPathStore:store];
-        _toLabel.text = [NSString stringWithFormat:@"To: %@", store.vendor.name];
+    if ([item isKindOfClass:[MBRegion class]]) {
+        MBRegion* region = item;
+        [self addPathRegion:region];
+        _toLabel.text = [NSString stringWithFormat:@"To: %@", region.name];
     } else if ([item isKindOfClass:[MBMapElement class]]) {
         MBMapElement* mapElement = item;
         [self addPathElement:mapElement];
@@ -393,13 +393,13 @@
     }
     
     for (MBFloor* floor in _venue.floors) {
-        for (MBStore* store in floor.stores) {
-            NSString* name = store.vendor.name;
+        for (MBRegion* region in floor.regions) {
+            NSString* name = region.name;
             NSRange nameRange = NSMakeRange(0, name.length);
             NSUInteger searchOptions = NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch;
             NSRange foundRange = [name rangeOfString:query options:searchOptions range:nameRange];
             if (foundRange.length > 0)
-                [_searchResults addObject:store];
+                [_searchResults addObject:region];
         }
     }
 }

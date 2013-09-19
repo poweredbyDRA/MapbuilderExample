@@ -11,13 +11,12 @@
 		A908002D174C6C77000B36CC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A908002C174C6C77000B36CC /* CoreText.framework */; };
 		A91AA43217DADEB5008017F0 /* MBElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA40E17DADEB5008017F0 /* MBElementView.m */; };
 		A91AA43317DADEB5008017F0 /* MBPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41017DADEB5008017F0 /* MBPinView.m */; };
-		A91AA43417DADEB5008017F0 /* MBStoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41217DADEB5008017F0 /* MBStoreLabel.m */; };
+		A91AA43417DADEB5008017F0 /* MBRegionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41217DADEB5008017F0 /* MBRegionLabel.m */; };
 		A91AA43617DADEB5008017F0 /* MBConnection+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41717DADEB5008017F0 /* MBConnection+Mapping.m */; };
 		A91AA43817DADEB5008017F0 /* MBFloor+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41B17DADEB5008017F0 /* MBFloor+Mapping.m */; };
 		A91AA43A17DADEB5008017F0 /* MBMapElement+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA41F17DADEB5008017F0 /* MBMapElement+Mapping.m */; };
 		A91AA43C17DADEB5008017F0 /* MBPolygon+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA42317DADEB5008017F0 /* MBPolygon+Mapping.m */; };
-		A91AA43E17DADEB5008017F0 /* MBStore+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA42717DADEB5008017F0 /* MBStore+Mapping.m */; };
-		A91AA44017DADEB5008017F0 /* MBVendor+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA42B17DADEB5008017F0 /* MBVendor+Mapping.m */; };
+		A91AA43E17DADEB5008017F0 /* MBRegion+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA42717DADEB5008017F0 /* MBRegion+Mapping.m */; };
 		A91AA44217DADEB5008017F0 /* MBVenue+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA42F17DADEB5008017F0 /* MBVenue+Mapping.m */; };
 		A91AA46917DADFB4008017F0 /* MBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA46717DADFB4008017F0 /* MBNetworking.m */; };
 		A9522E6517A354F700C8C2CF /* mallrat_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9522E5E17A354E600C8C2CF /* mallrat_font.ttf */; };
@@ -76,8 +75,8 @@
 		A91AA40E17DADEB5008017F0 /* MBElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBElementView.m; sourceTree = "<group>"; };
 		A91AA40F17DADEB5008017F0 /* MBPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPinView.h; sourceTree = "<group>"; };
 		A91AA41017DADEB5008017F0 /* MBPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPinView.m; sourceTree = "<group>"; };
-		A91AA41117DADEB5008017F0 /* MBStoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStoreLabel.h; sourceTree = "<group>"; };
-		A91AA41217DADEB5008017F0 /* MBStoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBStoreLabel.m; sourceTree = "<group>"; };
+		A91AA41117DADEB5008017F0 /* MBRegionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRegionLabel.h; sourceTree = "<group>"; };
+		A91AA41217DADEB5008017F0 /* MBRegionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRegionLabel.m; sourceTree = "<group>"; };
 		A91AA41617DADEB5008017F0 /* MBConnection+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBConnection+Mapping.h"; sourceTree = "<group>"; };
 		A91AA41717DADEB5008017F0 /* MBConnection+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBConnection+Mapping.m"; sourceTree = "<group>"; };
 		A91AA41A17DADEB5008017F0 /* MBFloor+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBFloor+Mapping.h"; sourceTree = "<group>"; };
@@ -86,14 +85,13 @@
 		A91AA41F17DADEB5008017F0 /* MBMapElement+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBMapElement+Mapping.m"; sourceTree = "<group>"; };
 		A91AA42217DADEB5008017F0 /* MBPolygon+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBPolygon+Mapping.h"; sourceTree = "<group>"; };
 		A91AA42317DADEB5008017F0 /* MBPolygon+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBPolygon+Mapping.m"; sourceTree = "<group>"; };
-		A91AA42617DADEB5008017F0 /* MBStore+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBStore+Mapping.h"; sourceTree = "<group>"; };
-		A91AA42717DADEB5008017F0 /* MBStore+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBStore+Mapping.m"; sourceTree = "<group>"; };
-		A91AA42A17DADEB5008017F0 /* MBVendor+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBVendor+Mapping.h"; sourceTree = "<group>"; };
-		A91AA42B17DADEB5008017F0 /* MBVendor+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBVendor+Mapping.m"; sourceTree = "<group>"; };
+		A91AA42617DADEB5008017F0 /* MBRegion+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBRegion+Mapping.h"; sourceTree = "<group>"; };
+		A91AA42717DADEB5008017F0 /* MBRegion+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBRegion+Mapping.m"; sourceTree = "<group>"; };
 		A91AA42E17DADEB5008017F0 /* MBVenue+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBVenue+Mapping.h"; sourceTree = "<group>"; };
 		A91AA42F17DADEB5008017F0 /* MBVenue+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBVenue+Mapping.m"; sourceTree = "<group>"; };
 		A91AA46717DADFB4008017F0 /* MBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNetworking.m; sourceTree = "<group>"; };
 		A91AA46817DADFB4008017F0 /* MBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNetworking.h; sourceTree = "<group>"; };
+		A947675017EAD32D009AC386 /* MBRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRegion.h; sourceTree = "<group>"; };
 		A9522E5B17A354E600C8C2CF /* mallrat_font.dev.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mallrat_font.dev.svg; sourceTree = "<group>"; };
 		A9522E5C17A354E600C8C2CF /* mallrat_font.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = mallrat_font.eot; sourceTree = "<group>"; };
 		A9522E5D17A354E600C8C2CF /* mallrat_font.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mallrat_font.svg; sourceTree = "<group>"; };
@@ -167,8 +165,6 @@
 		D851C98917DC1DA500F91174 /* MBPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPath.h; sourceTree = "<group>"; };
 		D851C98A17DC1DA500F91174 /* MBPathList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPathList.h; sourceTree = "<group>"; };
 		D851C98B17DC1DA500F91174 /* MBPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPolygon.h; sourceTree = "<group>"; };
-		D851C98C17DC1DA500F91174 /* MBStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStore.h; sourceTree = "<group>"; };
-		D851C98D17DC1DA500F91174 /* MBVendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBVendor.h; sourceTree = "<group>"; };
 		D851C98E17DC1DA500F91174 /* MBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBVenue.h; sourceTree = "<group>"; };
 		D851C99017DC251700F91174 /* MBMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapAnnotation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,8 +199,8 @@
 				A91AA40E17DADEB5008017F0 /* MBElementView.m */,
 				A91AA40F17DADEB5008017F0 /* MBPinView.h */,
 				A91AA41017DADEB5008017F0 /* MBPinView.m */,
-				A91AA41117DADEB5008017F0 /* MBStoreLabel.h */,
-				A91AA41217DADEB5008017F0 /* MBStoreLabel.m */,
+				A91AA41117DADEB5008017F0 /* MBRegionLabel.h */,
+				A91AA41217DADEB5008017F0 /* MBRegionLabel.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -220,10 +216,8 @@
 				A91AA41F17DADEB5008017F0 /* MBMapElement+Mapping.m */,
 				A91AA42217DADEB5008017F0 /* MBPolygon+Mapping.h */,
 				A91AA42317DADEB5008017F0 /* MBPolygon+Mapping.m */,
-				A91AA42617DADEB5008017F0 /* MBStore+Mapping.h */,
-				A91AA42717DADEB5008017F0 /* MBStore+Mapping.m */,
-				A91AA42A17DADEB5008017F0 /* MBVendor+Mapping.h */,
-				A91AA42B17DADEB5008017F0 /* MBVendor+Mapping.m */,
+				A91AA42617DADEB5008017F0 /* MBRegion+Mapping.h */,
+				A91AA42717DADEB5008017F0 /* MBRegion+Mapping.m */,
 				A91AA42E17DADEB5008017F0 /* MBVenue+Mapping.h */,
 				A91AA42F17DADEB5008017F0 /* MBVenue+Mapping.m */,
 			);
@@ -376,8 +370,7 @@
 				D851C98917DC1DA500F91174 /* MBPath.h */,
 				D851C98A17DC1DA500F91174 /* MBPathList.h */,
 				D851C98B17DC1DA500F91174 /* MBPolygon.h */,
-				D851C98C17DC1DA500F91174 /* MBStore.h */,
-				D851C98D17DC1DA500F91174 /* MBVendor.h */,
+				A947675017EAD32D009AC386 /* MBRegion.h */,
 				D851C98E17DC1DA500F91174 /* MBVenue.h */,
 				D851C99017DC251700F91174 /* MBMapAnnotation.h */,
 			);
@@ -523,13 +516,12 @@
 				A9B175DB170623F6003F264F /* MBMapViewController.mm in Sources */,
 				A91AA43217DADEB5008017F0 /* MBElementView.m in Sources */,
 				A91AA43317DADEB5008017F0 /* MBPinView.m in Sources */,
-				A91AA43417DADEB5008017F0 /* MBStoreLabel.m in Sources */,
+				A91AA43417DADEB5008017F0 /* MBRegionLabel.m in Sources */,
 				A91AA43617DADEB5008017F0 /* MBConnection+Mapping.m in Sources */,
 				A91AA43817DADEB5008017F0 /* MBFloor+Mapping.m in Sources */,
 				A91AA43A17DADEB5008017F0 /* MBMapElement+Mapping.m in Sources */,
 				A91AA43C17DADEB5008017F0 /* MBPolygon+Mapping.m in Sources */,
-				A91AA43E17DADEB5008017F0 /* MBStore+Mapping.m in Sources */,
-				A91AA44017DADEB5008017F0 /* MBVendor+Mapping.m in Sources */,
+				A91AA43E17DADEB5008017F0 /* MBRegion+Mapping.m in Sources */,
 				A91AA44217DADEB5008017F0 /* MBVenue+Mapping.m in Sources */,
 				A91AA46917DADFB4008017F0 /* MBNetworking.m in Sources */,
 			);

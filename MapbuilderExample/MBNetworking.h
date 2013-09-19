@@ -36,7 +36,7 @@
 - (NSOperation*)fetchVenuesWithSuccess:(void (^)(NSArray* venues))success failure:(void (^)(NSError *error))failure;
 - (NSOperation*)fetchVenueDetails:(MBVenue*)venue withSuccess:(void (^)(MBVenue* venue))success failure:(void (^)(NSError *error))failure;
 - (NSOperation*)fetchVenueNavigation:(MBVenue*)venue withSuccess:(void (^)(MBVenue* venue))success failure:(void (^)(NSError *error))failure;
-- (NSOperation*)fetchVenueStores:(MBVenue*)venue withSuccess:(void (^)(NSArray* stores))success failure:(void (^)(NSError* error))failure;
+- (NSOperation*)fetchVenueRegions:(MBVenue*)venue withSuccess:(void (^)(NSArray* regions))success failure:(void (^)(NSError* error))failure;
 
 - (NSOperation*)fetchFloorSVG:(MBFloor*)floor withSuccess:(void (^)(NSData* svg))success failure:(void (^)(NSError *error))failure;
 - (NSOperation*)fetchFloorTriangulation:(MBFloor*)floor withSuccess:(void (^)(NSData* triangulation))success failure:(void (^)(NSError *error))failure;

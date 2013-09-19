@@ -23,7 +23,7 @@
 
 #import "MBVenue+Mapping.h"
 #import "MBFloor+Mapping.h"
-#import "MBStore+Mapping.h"
+#import "MBRegion+Mapping.h"
 
 #define MB_HOST @"poweredbydra.com"
 #define MB_SCHEME @"https"
@@ -145,8 +145,8 @@
             floor.venue = venue;
             for (MBMapElement* elem in floor.mapElements)
                 elem.floor = floor;
-            for (MBStore* store in floor.stores)
-                store.floor = floor;
+            for (MBRegion* region in floor.regions)
+                region.floor = floor;
         }
         
         if (success)
@@ -160,28 +160,28 @@
     return op;
 }
 
-- (AFHTTPRequestOperation*)fetchVenueStoresOperation:(MBVenue*)venue {
-    NSString* path = [NSString stringWithFormat:@"api/venues/%@/stores", venue.venueID];
+- (AFHTTPRequestOperation*)fetchVenueRegionsOperation:(MBVenue*)venue {
+    NSString* path = [NSString stringWithFormat:@"api/venues/%@/regions", venue.venueID];
     NSURLRequest* request = [_client requestWithMethod:@"GET" path:path parameters:nil];
     return [[AFHTTPRequestOperation alloc] initWithRequest:request];
 }
 
-- (NSOperation*)fetchVenueStores:(MBVenue*)venue withSuccess:(void (^)(NSArray* stores))success failure:(void (^)(NSError* error))failure {
-    AFHTTPRequestOperation* op = [self fetchVenueStoresOperation:venue];
+- (NSOperation*)fetchVenueRegions:(MBVenue*)venue withSuccess:(void (^)(NSArray* regions))success failure:(void (^)(NSError* error))failure {
+    AFHTTPRequestOperation* op = [self fetchVenueRegionsOperation:venue];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation* op, id response) {
         // Parse response
         NSError* error;
-        NSDictionary* storesDict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+        NSDictionary* regionsDict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
         if (error) {
             if (failure)
                 failure(error);
             return;
         }
         
-        NSArray* stores = [EKMapper arrayOfObjectsFromExternalRepresentation:[storesDict objectForKey:@"stores"] withMapping:[MBStore mapping]];
+        NSArray* regions = [EKMapper arrayOfObjectsFromExternalRepresentation:[regionsDict objectForKey:@"regions"] withMapping:[MBRegion mapping]];
        
         if (success)
-            success(stores);
+            success(regions);
     } failure:^(AFHTTPRequestOperation* op, NSError* error) {
         if (failure)
             failure(error);

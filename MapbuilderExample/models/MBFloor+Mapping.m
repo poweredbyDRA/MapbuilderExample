@@ -21,7 +21,7 @@
 
 #import "MBFloor+Mapping.h"
 #import "MBMapElement+Mapping.h"
-#import "MBStore+Mapping.h"
+#import "MBRegion+Mapping.h"
 
 @implementation MBFloor (Mapping)
 
@@ -33,7 +33,7 @@
      @"position"
      ]];
     [mapping mapFieldsFromDictionary:@{ @"id": @"floorID" }];
-    [mapping hasManyMapping:[MBStore mapping] forKey:@"stores"];
+    [mapping hasManyMapping:[MBRegion mapping] forKey:@"regions"];
     [mapping hasManyMapping:[MBMapElement mapping] forKey:@"map_elements" forField:@"mapElements"];
     return mapping;
 }

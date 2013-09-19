@@ -7,7 +7,7 @@
 @class MBFloor;
 @class MBMapElement;
 @class MBPath;
-@class MBStore;
+@class MBRegion;
 
 
 /**
