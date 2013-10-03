@@ -100,8 +100,6 @@
         [self createMapElements];
         [self createRegionLabels];
     }
-    
-    _mapView.floor = _currentFloor;
 }
 
 - (IBAction)floorUp {
@@ -160,8 +158,7 @@
         return;
     
     [_map loadSVG:_currentFloor.svg forFloor:_currentFloor];
-    _mapView.map = _map;
-    [_mapView sizeToFit];
+    _mapView.floor = _currentFloor;
 }
 
 - (void)loadTriangulation {
