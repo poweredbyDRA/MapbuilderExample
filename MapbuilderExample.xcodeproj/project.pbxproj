@@ -35,12 +35,10 @@
 		A987EDC016FF694400432A6B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A987EDBF16FF694400432A6B /* Default@2x.png */; };
 		A987EDC216FF694400432A6B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A987EDC116FF694400432A6B /* Default-568h@2x.png */; };
 		A987EDCC16FF69D900432A6B /* MBVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A987EDCA16FF69D900432A6B /* MBVenuesViewController.m */; };
-		A987EDCD16FF69D900432A6B /* MBVenuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A987EDCB16FF69D900432A6B /* MBVenuesViewController.xib */; };
 		A987EDD516FF6D6600432A6B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A987EDD416FF6D6600432A6B /* MobileCoreServices.framework */; };
 		A987EDD716FF6D6D00432A6B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A987EDD616FF6D6D00432A6B /* SystemConfiguration.framework */; };
 		A987EDD916FF6D8100432A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A987EDD816FF6D8100432A6B /* UIKit.framework */; };
 		A9B175DB170623F6003F264F /* MBMapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9B175D9170623F6003F264F /* MBMapViewController.mm */; };
-		A9B175DC170623F6003F264F /* MBMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B175DA170623F6003F264F /* MBMapViewController.xib */; };
 		A9B175DE17089B2E003F264F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B175DD17089B2E003F264F /* QuartzCore.framework */; };
 		A9B175E017089B40003F264F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B175DF17089B40003F264F /* libxml2.dylib */; };
 		A9CE3EC4179D12530039A245 /* collapse.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EB8179D12530039A245 /* collapse.png */; };
@@ -64,6 +62,7 @@
 		A9CE3EDE179D1F8E0039A245 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EDA179D1F8E0039A245 /* up.png */; };
 		A9CE3EDF179D1F8E0039A245 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EDB179D1F8E0039A245 /* up@2x.png */; };
 		D851C98F17DC1DA500F91174 /* libMapbuilderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D851C98217DC1DA500F91174 /* libMapbuilderSDK.a */; };
+		D865E36A17FE8FED00602BFD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D865E36917FE8FED00602BFD /* Storyboard.storyboard */; };
 		F0578FDF480D4562BB659A7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C817CE018E574D4099EE0817 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -123,14 +122,12 @@
 		A987EDC116FF694400432A6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A987EDC916FF69D900432A6B /* MBVenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBVenuesViewController.h; sourceTree = "<group>"; };
 		A987EDCA16FF69D900432A6B /* MBVenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBVenuesViewController.m; sourceTree = "<group>"; };
-		A987EDCB16FF69D900432A6B /* MBVenuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBVenuesViewController.xib; sourceTree = "<group>"; };
 		A987EDCF16FF6B6A00432A6B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		A987EDD416FF6D6600432A6B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A987EDD616FF6D6D00432A6B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A987EDD816FF6D8100432A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9B175D8170623F6003F264F /* MBMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapViewController.h; sourceTree = "<group>"; };
 		A9B175D9170623F6003F264F /* MBMapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MBMapViewController.mm; sourceTree = "<group>"; };
-		A9B175DA170623F6003F264F /* MBMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMapViewController.xib; sourceTree = "<group>"; };
 		A9B175DD17089B2E003F264F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A9B175DF17089B40003F264F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		A9B1765117094C07003F264F /* libtripath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtripath.a; path = "tripath/build/Release-iphoneos/libtripath.a"; sourceTree = "<group>"; };
@@ -167,6 +164,7 @@
 		D851C98B17DC1DA500F91174 /* MBPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPolygon.h; sourceTree = "<group>"; };
 		D851C98E17DC1DA500F91174 /* MBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBVenue.h; sourceTree = "<group>"; };
 		D851C99017DC251700F91174 /* MBMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapAnnotation.h; sourceTree = "<group>"; };
+		D865E36917FE8FED00602BFD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,10 +298,9 @@
 				A91AA46717DADFB4008017F0 /* MBNetworking.m */,
 				A987EDC916FF69D900432A6B /* MBVenuesViewController.h */,
 				A987EDCA16FF69D900432A6B /* MBVenuesViewController.m */,
-				A987EDCB16FF69D900432A6B /* MBVenuesViewController.xib */,
 				A9B175D8170623F6003F264F /* MBMapViewController.h */,
 				A9B175D9170623F6003F264F /* MBMapViewController.mm */,
-				A9B175DA170623F6003F264F /* MBMapViewController.xib */,
+				D865E36917FE8FED00602BFD /* Storyboard.storyboard */,
 				A9CE3EB7179D12530039A245 /* assets */,
 				A987EDB216FF694400432A6B /* Supporting Files */,
 			);
@@ -439,8 +436,6 @@
 				A987EDBE16FF694400432A6B /* Default.png in Resources */,
 				A987EDC016FF694400432A6B /* Default@2x.png in Resources */,
 				A987EDC216FF694400432A6B /* Default-568h@2x.png in Resources */,
-				A987EDCD16FF69D900432A6B /* MBVenuesViewController.xib in Resources */,
-				A9B175DC170623F6003F264F /* MBMapViewController.xib in Resources */,
 				A9CE3EC4179D12530039A245 /* collapse.png in Resources */,
 				A9CE3EC5179D12530039A245 /* collapse@2x.png in Resources */,
 				A9CE3EC6179D12530039A245 /* expand.png in Resources */,
@@ -458,6 +453,7 @@
 				A9CE3ED6179D1E7A0039A245 /* layers_selected.png in Resources */,
 				A9CE3ED7179D1E7A0039A245 /* layers_selected@2x.png in Resources */,
 				A9CE3EDC179D1F8E0039A245 /* down.png in Resources */,
+				D865E36A17FE8FED00602BFD /* Storyboard.storyboard in Resources */,
 				A9CE3EDD179D1F8E0039A245 /* down@2x.png in Resources */,
 				A9CE3EDE179D1F8E0039A245 /* up.png in Resources */,
 				A9CE3EDF179D1F8E0039A245 /* up@2x.png in Resources */,

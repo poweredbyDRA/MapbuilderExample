@@ -31,16 +31,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[MBNetworking instance] setApiKey:API_KEY];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    MBVenuesViewController* vc = [[MBVenuesViewController alloc] initWithNibName:nil bundle:nil];
-    vc.title = @"Venues";
-    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = nvc;
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

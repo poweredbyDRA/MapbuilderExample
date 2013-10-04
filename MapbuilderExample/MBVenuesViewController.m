@@ -24,6 +24,8 @@
 #import "MBMapViewController.h"
 #import "MBNetworking.h"
 
+static NSString* const ShowVenueSegueIdentifier = @"ShowVenue";
+
 
 @implementation MBVenuesViewController {
     NSOperation* _fetchOperation;
@@ -63,10 +65,12 @@
 }
 
 - (void)showVenue:(MBVenue*)venue {
-    MBMapViewController* vc = [[MBMapViewController alloc] initWithNibName:nil bundle:nil];
-    vc.venue = venue;
-    vc.title = venue.name;
-    [self.navigationController pushViewController:vc animated:YES];
+    NSUInteger index = [_venues indexOfObject:venue];
+    if (index == NSNotFound)
+        return;
+
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self performSegueWithIdentifier:ShowVenueSegueIdentifier sender:self];
 }
 
 #pragma mark - UIViewController methods
@@ -80,6 +84,33 @@
     [self fetch];
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+    MBVenue* venue = [_venues objectAtIndex:indexPath.row];
+    if ([venue.floors count] == 0) {
+        [self fetch:venue];
+        return NO;
+    }
+
+    return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:ShowVenueSegueIdentifier]) {
+        MBVenue* venue;
+        if (self.searchDisplayController.active) {
+            NSIndexPath* indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            venue = [_filteredVenues objectAtIndex:indexPath.row];
+        } else {
+            NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+            venue = [_venues objectAtIndex:indexPath.row];
+        }
+
+        MBMapViewController* vc = [segue destinationViewController];
+        vc.venue = venue;
+        vc.title = venue.name;
+    }
+}
 
 #pragma mark - UITableViewDataSource methods
 
@@ -105,20 +136,11 @@
     return cell;
 }
 
-
-#pragma mark - UITableViewDelegate methods
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MBVenue* venue;
-    if (tableView == self.tableView)
-        venue = [_venues objectAtIndex:indexPath.row];
-    else
-        venue = [_filteredVenues objectAtIndex:indexPath.row];
-    
-    if ([venue.floors count] > 0)
-        [self showVenue:venue];
-    else
-        [self fetch:venue];
+    if ([self shouldPerformSegueWithIdentifier:ShowVenueSegueIdentifier sender:self])
+        [self performSegueWithIdentifier:ShowVenueSegueIdentifier sender:self];
 }
 
 
