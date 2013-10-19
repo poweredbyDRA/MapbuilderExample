@@ -39,10 +39,11 @@
 @property (strong, nonatomic) IBOutlet MBMapView* mapView;
 
 @property (weak, nonatomic) IBOutlet UILabel* floorLabel;
-@property (weak, nonatomic) IBOutlet UIView* setLocationView;
 @property (weak, nonatomic) IBOutlet UIView* currentPathView;
-@property (weak, nonatomic) IBOutlet UILabel* fromLabel;
-@property (weak, nonatomic) IBOutlet UILabel* toLabel;
+
+@property (weak, nonatomic) IBOutlet UIView* destinationContainerView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint* destinationContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel* destinationLabel;
 
 @property (weak, nonatomic) IBOutlet UIView* buttonsView;
 @property (weak, nonatomic) IBOutlet UIButton* floorDownButton;

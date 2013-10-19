@@ -100,6 +100,28 @@
                       toLocation:(CGPoint)loc2 inFloor:(MBFloor*)floor2;
 
 /**
+ Finds a path list from one region to another.
+ 
+ @param origin The initial region.
+ @param destination The target region.
+ 
+ @return An `MBPathList` with a series of paths between the initial region
+ and the target region, or an empty path list if no such path exists.
+ */
+- (MBPathList*)pathsFromRegion:(MBRegion*)origin toRegion:(MBRegion*)destination;
+
+/**
+ Finds a path list from a region to a map element.
+ 
+ @param origin The initial region.
+ @param destination The target map element.
+ 
+ @return An `MBPathList` with a series of paths between the initial region
+ and the target map element, or an empty path list if no such path exists.
+ */
+- (MBPathList*)pathsFromRegion:(MBRegion*)origin toMapElement:(MBMapElement*)destination;
+
+/**
  Finds a path list from a location to a region.
  
  @param loc The initial location.

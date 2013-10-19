@@ -33,6 +33,8 @@
  */
 @property (strong, nonatomic) MBFloor* floor;
 
+- (void)scrollToLocation:(CGPoint)location animated:(BOOL)animated;
+
 
 ///------------------
 /// @name Annotations

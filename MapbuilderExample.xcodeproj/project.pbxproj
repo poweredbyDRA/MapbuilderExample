@@ -41,6 +41,7 @@
 		A9B175DB170623F6003F264F /* MBMapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9B175D9170623F6003F264F /* MBMapViewController.mm */; };
 		A9B175DE17089B2E003F264F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B175DD17089B2E003F264F /* QuartzCore.framework */; };
 		A9B175E017089B40003F264F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B175DF17089B40003F264F /* libxml2.dylib */; };
+		A9B2C1F6183C7A6C00775F34 /* MBRegionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B2C1F5183C7A6C00775F34 /* MBRegionsViewController.m */; };
 		A9CE3EC4179D12530039A245 /* collapse.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EB8179D12530039A245 /* collapse.png */; };
 		A9CE3EC5179D12530039A245 /* collapse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EB9179D12530039A245 /* collapse@2x.png */; };
 		A9CE3EC6179D12530039A245 /* expand.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CE3EBA179D12530039A245 /* expand.png */; };
@@ -131,6 +132,8 @@
 		A9B175DD17089B2E003F264F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A9B175DF17089B40003F264F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		A9B1765117094C07003F264F /* libtripath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtripath.a; path = "tripath/build/Release-iphoneos/libtripath.a"; sourceTree = "<group>"; };
+		A9B2C1F4183C7A6C00775F34 /* MBRegionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRegionsViewController.h; sourceTree = "<group>"; };
+		A9B2C1F5183C7A6C00775F34 /* MBRegionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRegionsViewController.m; sourceTree = "<group>"; };
 		A9CE3EB8179D12530039A245 /* collapse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collapse.png; sourceTree = "<group>"; };
 		A9CE3EB9179D12530039A245 /* collapse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collapse@2x.png"; sourceTree = "<group>"; };
 		A9CE3EBA179D12530039A245 /* expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expand.png; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				A987EDCA16FF69D900432A6B /* MBVenuesViewController.m */,
 				A9B175D8170623F6003F264F /* MBMapViewController.h */,
 				A9B175D9170623F6003F264F /* MBMapViewController.mm */,
+				A9B2C1F4183C7A6C00775F34 /* MBRegionsViewController.h */,
+				A9B2C1F5183C7A6C00775F34 /* MBRegionsViewController.m */,
 				D865E36917FE8FED00602BFD /* Storyboard.storyboard */,
 				A9CE3EB7179D12530039A245 /* assets */,
 				A987EDB216FF694400432A6B /* Supporting Files */,
@@ -516,6 +521,7 @@
 				A91AA43617DADEB5008017F0 /* MBConnection+Mapping.m in Sources */,
 				A91AA43817DADEB5008017F0 /* MBFloor+Mapping.m in Sources */,
 				A91AA43A17DADEB5008017F0 /* MBMapElement+Mapping.m in Sources */,
+				A9B2C1F6183C7A6C00775F34 /* MBRegionsViewController.m in Sources */,
 				A91AA43C17DADEB5008017F0 /* MBPolygon+Mapping.m in Sources */,
 				A91AA43E17DADEB5008017F0 /* MBRegion+Mapping.m in Sources */,
 				A91AA44217DADEB5008017F0 /* MBVenue+Mapping.m in Sources */,

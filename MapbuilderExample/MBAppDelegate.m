@@ -31,6 +31,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[MBNetworking instance] setApiKey:API_KEY];
+    
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.window.tintColor = [UIColor whiteColor];
+    
     return YES;
 }
 

@@ -32,6 +32,7 @@
 #import "MBPolygon.h"
 #import "MBRegion.h"
 #import "MBRegionLabel.h"
+#import "MBRegionsViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -44,8 +45,12 @@
     NSOperation* _triangulationOperation;
     
     CGPoint _origin;
-    CGPoint _destination;
+    MBRegion* _originRegion;
     BOOL _originSet;
+    
+    MBRegion* _destinationRegion;
+    MBMapElement* _destinationMapElement;
+    CGPoint _destination;
     
     NSMutableArray* _searchResults;
     NSMutableDictionary* _mapElementsByName;
@@ -92,9 +97,9 @@
         [self loadTriangulation];
     
     if (_currentFloor.label)
-        _floorLabel.text = [NSString stringWithFormat:@"Floor: %@", _currentFloor.label];
+        _floorLabel.text = [NSString stringWithFormat:@"%@", _currentFloor.label];
     else
-        _floorLabel.text = [NSString stringWithFormat:@"Floor: %d", index];
+        _floorLabel.text = [NSString stringWithFormat:@"%d", index];
     
     if (self.isViewLoaded) {
         [self createMapElements];
@@ -119,17 +124,13 @@
     _locationView.hidden = YES;
     _locationView.floor = nil;
     _destinationView.hidden = YES;
-    _setLocationView.hidden = NO;
     _currentPathView.hidden = YES;
-    self.searchDisplayController.searchBar.hidden = YES;
 }
 
 - (IBAction)clearPath {
     [_mapView clearPath];
     _destinationView.hidden = YES;
-    
     _currentPathView.hidden = YES;
-    self.searchDisplayController.searchBar.hidden = NO;
 }
 
 
@@ -205,8 +206,6 @@
         _locationView.location = _origin;
         _locationView.floor = _currentFloor;
         _locationView.hidden = NO;
-        _setLocationView.hidden = YES;
-        self.searchDisplayController.searchBar.hidden = NO;
         [_mapView setNeedsLayout];
         return;
     }
@@ -231,15 +230,30 @@
     _mapView.pathList = [_map pathsFromLocation:_origin inFloor:_currentFloor toMapElement:element];
 }
 
-- (void)addPathRegion:(MBRegion*)region {
-    if (!_originSet)
-        return;
-    
+- (void)setOriginRegion:(MBRegion*)region {
     _mapView.pathList = [_map pathsFromLocation:_origin inFloor:_currentFloor toRegion:region];
+    
 }
+
 
 - (void)addPathElement:(MBMapElement*)element {
     [self addPathLocation:[element.location CGPointValue]];
+}
+
+- (void)showPathFrom:(MBRegion*)region {
+    if (_destinationRegion)
+        _mapView.pathList = [_map pathsFromRegion:region toRegion:_destinationRegion];
+    else if (_destinationMapElement)
+        _mapView.pathList = [_map pathsFromRegion:region toMapElement:_destinationMapElement];
+}
+
+- (void)showDestinationLabel:(NSString*)label {
+    _destinationLabel.text = label;
+    [_destinationContainerView addConstraint:_destinationContainerHeightConstraint];
+}
+
+- (void)hideDestinationLabel {
+    [_destinationContainerView removeConstraint:_destinationContainerHeightConstraint];
 }
 
 
@@ -269,15 +283,16 @@
     _floorUpButton.enabled = _currentFloorIndex < _floors.count - 1;
     
     if (_currentFloor.label)
-        _floorLabel.text = [NSString stringWithFormat:@"Floor: %@", _currentFloor.label];
+        _floorLabel.text = [NSString stringWithFormat:@"%@", _currentFloor.label];
     else
-        _floorLabel.text = [NSString stringWithFormat:@"Floor: %d", 1];
+        _floorLabel.text = [NSString stringWithFormat:@"%d", 1];
     
     _origin = CGPointZero;
     _searchResults = [NSMutableArray array];
     
     [self createMapElements];
     [self createRegionLabels];
+    [self hideDestinationLabel];
 }
 
 - (void)createMapElements {
@@ -309,11 +324,30 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender {
+    MBRegionsViewController* vc = [segue destinationViewController];
+    vc.regions = [self allRegions];
+    vc.onSelect = ^(MBRegion* region) {
+        [self showPathFrom:region];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    };
+    vc.onCancel = ^() {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    };
+}
+
+- (NSArray*)allRegions {
+    NSMutableArray* array = [NSMutableArray array];
+    for (MBFloor* floor in _venue.floors) {
+        [array addObjectsFromArray:floor.regions];
+    }
+    return array;
+}
 
 #pragma mark MBTouchDelegate
 
 - (void)tapOnMapLocation:(CGPoint)location; {
-    [self addPathLocation:location];
+    //[self addPathLocation:location];
 }
 
 
@@ -351,26 +385,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [_searchResults objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[MBRegion class]]) {
-        MBRegion* region = item;
-        [self addPathRegion:region];
-        _toLabel.text = [NSString stringWithFormat:@"To: %@", region.name];
+        _destinationRegion = item;
+        _destinationMapElement = nil;
+        [self showDestinationLabel:_destinationRegion.name];
+        
+        CGPoint point = [_map polygonMidPoint:_destinationRegion.polygon];
+        [_mapView scrollToLocation:point animated:YES];
     } else if ([item isKindOfClass:[MBMapElement class]]) {
-        MBMapElement* mapElement = item;
-        [self addPathElement:mapElement];
-        _toLabel.text = [NSString stringWithFormat:@"To: %@", mapElement.name];
+        _destinationMapElement = item;
+        _destinationRegion = nil;
+        [self showDestinationLabel:_destinationMapElement.name];
+        [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
     } else if ([item isKindOfClass:[NSDictionary class]]) {
         NSDictionary* dict = item;
-        [self addPathToClosestMapElement:[dict objectForKey:@"title"]];
-        _toLabel.text = [NSString stringWithFormat:@"To: Closest %@", [dict objectForKey:@"title"]];
+        NSString* name = [dict objectForKey:@"title"];
+        _destinationMapElement = [_map mapElementWithName:name closestToLocation:_origin inFloor:_currentFloor];
+        _destinationRegion = nil;
+        if (_destinationMapElement) {
+            [self showDestinationLabel:_destinationMapElement.name];
+            [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
+        }
     } else if ([item isKindOfClass:[NSString class]]) {
         NSString* name = item;
-        [self addPathToClosestMapElement:name];
-        _toLabel.text = [NSString stringWithFormat:@"To: Closest %@", name];
+        _destinationMapElement = [_map mapElementWithName:name closestToLocation:_origin inFloor:_currentFloor];
+        _destinationRegion = nil;
+        if (_destinationMapElement) {
+            [self showDestinationLabel:_destinationMapElement.name];
+            [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
+        }
     }
     
     _currentPathView.hidden = NO;
     self.searchDisplayController.active = NO;
-    self.searchDisplayController.searchBar.hidden = YES;
 }
 
 
@@ -402,7 +448,7 @@
 }
 
 
-#pragma mark - UISearchDisplayControllerDelegate methods
+#pragma mark - UISearchDisplayDelegate methods
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     [self updateFilteredContentForQuery:searchString];
