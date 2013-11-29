@@ -199,14 +199,18 @@
     }
 }
 
+- (void)setCurrentLocation:(CGPoint)location {
+    _origin = location;
+    _originSet = YES;
+    _locationView.location = _origin;
+    _locationView.floor = _currentFloor;
+    _locationView.hidden = NO;
+    [_mapView setNeedsLayout];
+}
+
 - (void)addPathLocation:(CGPoint)location {
     if (!_originSet) {
-        _origin = location;
-        _originSet = YES;
-        _locationView.location = _origin;
-        _locationView.floor = _currentFloor;
-        _locationView.hidden = NO;
-        [_mapView setNeedsLayout];
+        [self setCurrentLocation:location];
         return;
     }
     
@@ -328,6 +332,7 @@
     MBRegionsViewController* vc = [segue destinationViewController];
     vc.regions = [self allRegions];
     vc.onSelect = ^(MBRegion* region) {
+        [self setCurrentLocation:[_map polygonMidPoint:region.polygon]];
         [self showPathFrom:region];
         [self dismissViewControllerAnimated:YES completion:NULL];
     };
