@@ -25,7 +25,9 @@
 #import "MBRegionLabel.h"
 
 
-@implementation MBRegionLabel
+@implementation MBRegionLabel {
+    CGRect _bb;
+}
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -44,6 +46,7 @@
     _region = region;
     
     self.text = region.name;
+    _bb = [_map polygonBoundingBox:_region.polygon];
     
     CGSize size;
     size.width = [[self class] longestWordWidthInString:self.text withFont:self.font];
@@ -80,10 +83,8 @@
 }
 
 - (BOOL)showAtScale:(CGFloat)scale {
-    CGRect bb = [_map polygonBoundingBox:_region.polygon];
-    
-    CGSize size = self.bounds.size;    
-    return size.width <= bb.size.width * scale * 1.5;
+    CGSize size = self.bounds.size;
+    return size.width <= _bb.size.width * scale * 1.5;
 }
 
 @end
