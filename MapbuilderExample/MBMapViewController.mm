@@ -281,11 +281,10 @@
     _destinationView.hidden = YES;
     [_mapView addAnnotation:_destinationView];
     
-    _buttonsView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    _buttonsView.backgroundColor = [UIColor darkGrayColor];
     _floorDownButton.enabled = _currentFloorIndex > 0;
     _floorUpButton.enabled = _currentFloorIndex < _floors.count - 1;
     
+    _floorLabel.font = [UIFont fontWithName:@"SansSerifBldFLF" size:100.f];
     if (_currentFloor.label)
         _floorLabel.text = [NSString stringWithFormat:@"%@", _currentFloor.label];
     else
