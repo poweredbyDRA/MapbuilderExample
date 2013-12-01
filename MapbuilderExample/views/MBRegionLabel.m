@@ -23,6 +23,7 @@
 #import "MBPolygon.h"
 #import "MBRegion.h"
 #import "MBRegionLabel.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation MBRegionLabel {
@@ -35,7 +36,9 @@
         return nil;
     
     self.backgroundColor = [UIColor clearColor];
-    self.font = [UIFont systemFontOfSize:13.f];
+    self.font = [UIFont fontWithName:@"SansSerifBookFLF" size:13.f];
+    self.shadowColor = [UIColor colorWithWhite:1 alpha:0.8];
+    self.shadowOffset = CGSizeMake(0, 1);
     self.textAlignment = NSTextAlignmentCenter;
     self.lineBreakMode = NSLineBreakByWordWrapping;
     self.numberOfLines = 2;

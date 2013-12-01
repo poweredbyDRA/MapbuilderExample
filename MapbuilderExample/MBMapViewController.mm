@@ -290,6 +290,9 @@
     else
         _floorLabel.text = [NSString stringWithFormat:@"%d", 1];
     
+    _goButton.titleLabel.font = [UIFont fontWithName:@"SansSerifBookFLF" size:24.f];
+    _destinationLabel.font = [UIFont fontWithName:@"SansSerifFLF" size:22.f];
+    
     _origin = CGPointZero;
     _searchResults = [NSMutableArray array];
     

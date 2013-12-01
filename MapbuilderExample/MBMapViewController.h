@@ -48,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UIView* buttonsView;
 @property (weak, nonatomic) IBOutlet UIButton* floorDownButton;
 @property (weak, nonatomic) IBOutlet UIButton* floorUpButton;
+@property (weak, nonatomic) IBOutlet UIButton* goButton;
 
 @property (strong, nonatomic) MBPinView* locationView;
 @property (strong, nonatomic) MBPinView* destinationView;

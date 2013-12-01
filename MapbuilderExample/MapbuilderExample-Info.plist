@@ -29,6 +29,7 @@
 		<string>mallrat_font.ttf</string>
 		<string>SansSerifFLF.otf</string>
 		<string>SansSerifBldFLF.otf</string>
+		<string>SansSerifBookFLF.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Storyboard</string>

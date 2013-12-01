@@ -21,6 +21,7 @@
 		A91AA46917DADFB4008017F0 /* MBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A91AA46717DADFB4008017F0 /* MBNetworking.m */; };
 		A9213789184B04FB00B5035A /* SansSerifBldFLF.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9213787184B04FB00B5035A /* SansSerifBldFLF.otf */; };
 		A921378A184B04FB00B5035A /* SansSerifFLF.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9213788184B04FB00B5035A /* SansSerifFLF.otf */; };
+		A921378C184B0CA300B5035A /* SansSerifBookFLF.otf in Resources */ = {isa = PBXBuildFile; fileRef = A921378B184B0CA300B5035A /* SansSerifBookFLF.otf */; };
 		A9522E6517A354F700C8C2CF /* mallrat_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9522E5E17A354E600C8C2CF /* mallrat_font.ttf */; };
 		A9522E7017A355D800C8C2CF /* connectors.png in Resources */ = {isa = PBXBuildFile; fileRef = A9522E6B17A355D800C8C2CF /* connectors.png */; };
 		A9522E7117A355D800C8C2CF /* inside_zones.png in Resources */ = {isa = PBXBuildFile; fileRef = A9522E6C17A355D800C8C2CF /* inside_zones.png */; };
@@ -95,6 +96,7 @@
 		A91AA46817DADFB4008017F0 /* MBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNetworking.h; sourceTree = "<group>"; };
 		A9213787184B04FB00B5035A /* SansSerifBldFLF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansSerifBldFLF.otf; sourceTree = "<group>"; };
 		A9213788184B04FB00B5035A /* SansSerifFLF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansSerifFLF.otf; sourceTree = "<group>"; };
+		A921378B184B0CA300B5035A /* SansSerifBookFLF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansSerifBookFLF.otf; sourceTree = "<group>"; };
 		A947675017EAD32D009AC386 /* MBRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRegion.h; sourceTree = "<group>"; };
 		A9522E5B17A354E600C8C2CF /* mallrat_font.dev.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mallrat_font.dev.svg; sourceTree = "<group>"; };
 		A9522E5C17A354E600C8C2CF /* mallrat_font.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = mallrat_font.eot; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		A9CE3EB7179D12530039A245 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				A921378B184B0CA300B5035A /* SansSerifBookFLF.otf */,
 				A9213787184B04FB00B5035A /* SansSerifBldFLF.otf */,
 				A9213788184B04FB00B5035A /* SansSerifFLF.otf */,
 				A9522E6B17A355D800C8C2CF /* connectors.png */,
@@ -449,6 +452,7 @@
 				A987EDC016FF694400432A6B /* Default@2x.png in Resources */,
 				A987EDC216FF694400432A6B /* Default-568h@2x.png in Resources */,
 				A9CE3EC4179D12530039A245 /* collapse.png in Resources */,
+				A921378C184B0CA300B5035A /* SansSerifBookFLF.otf in Resources */,
 				A9CE3EC5179D12530039A245 /* collapse@2x.png in Resources */,
 				A9CE3EC6179D12530039A245 /* expand.png in Resources */,
 				A9CE3EC7179D12530039A245 /* expand@2x.png in Resources */,
