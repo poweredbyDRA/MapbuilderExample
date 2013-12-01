@@ -199,26 +199,30 @@
     }
 }
 
-- (void)setCurrentLocation:(CGPoint)location {
+- (void)setCurrentLocation:(CGPoint)location onFloor:(MBFloor*)floor {
     _origin = location;
     _originSet = YES;
     _locationView.location = _origin;
-    _locationView.floor = _currentFloor;
+    _locationView.floor = floor;
     _locationView.hidden = NO;
+    [_mapView setNeedsLayout];
+}
+
+- (void)setDestinationLocation:(CGPoint)location onFloor:(MBFloor*)floor {
+    _destination = location;
+    _destinationView.location = _destination;
+    _destinationView.floor = floor;
+    _destinationView.hidden = NO;
     [_mapView setNeedsLayout];
 }
 
 - (void)addPathLocation:(CGPoint)location {
     if (!_originSet) {
-        [self setCurrentLocation:location];
+        [self setCurrentLocation:location onFloor:_currentFloor];
         return;
     }
     
-    _destination = location;
-    
-    _destinationView.location = _destination;
-    _destinationView.hidden = NO;
-    [_mapView setNeedsLayout];
+    [self setDestinationLocation:location onFloor:_currentFloor];
     
     MBPathList* pathList = [_map pathsFromLocation:_locationView.location inFloor:_locationView.floor toLocation:_destination inFloor:_currentFloor];
     if (!pathList) {
@@ -270,14 +274,11 @@
     _mapView.floor = _currentFloor;
     _mapView.touchDelegate = self;
     
-    _locationView = [[MBPinView alloc] initWithImage:[UIImage imageNamed:@"target"]];
+    _locationView = [[MBPinView alloc] initWithImage:[UIImage imageNamed:@"you-are-here"]];
     _locationView.hidden = YES;
     [_mapView addAnnotation:_locationView];
     
-    _destinationView = [[MBPinView  alloc] initWithImage:[UIImage imageNamed:@"location"]];
-    _destinationView.imageView.contentMode = UIViewContentModeTop;
-    CGSize ds = [_destinationView sizeThatFits:CGSizeZero];
-    _destinationView.bounds = CGRectMake(0, 0, ds.width, 2*ds.height);
+    _destinationView = [[MBPinView  alloc] initWithImage:[UIImage imageNamed:@"destination-marker"]];
     _destinationView.hidden = YES;
     [_mapView addAnnotation:_destinationView];
     
@@ -334,8 +335,19 @@
     MBRegionsViewController* vc = [segue destinationViewController];
     vc.regions = [self allRegions];
     vc.onSelect = ^(MBRegion* region) {
-        [self setCurrentLocation:[_map polygonMidPoint:region.polygon]];
         [self showPathFrom:region];
+        
+        NSUInteger index = [_floors indexOfObject:region.floor];
+        if (index != NSNotFound)
+            self.currentFloorIndex = index;
+        
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+            CGPoint location = [_map polygonMidPoint:region.polygon];
+            [self setCurrentLocation:location onFloor:region.floor];
+            [_mapView scrollToLocation:location animated:YES];
+        });
+        
         [self dismissViewControllerAnimated:YES completion:NULL];
     };
     vc.onCancel = ^() {
@@ -390,40 +402,57 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGPoint location;
+    MBFloor* floor;
+    NSString* label;
+    
     id item = [_searchResults objectAtIndex:indexPath.row];
     if ([item isKindOfClass:[MBRegion class]]) {
         _destinationRegion = item;
         _destinationMapElement = nil;
-        [self showDestinationLabel:_destinationRegion.name];
-        
-        CGPoint point = [_map polygonMidPoint:_destinationRegion.polygon];
-        [_mapView scrollToLocation:point animated:YES];
+        location = [_map polygonMidPoint:_destinationRegion.polygon];
+        floor = _destinationRegion.floor;
+        label = _destinationRegion.name;
     } else if ([item isKindOfClass:[MBMapElement class]]) {
         _destinationMapElement = item;
         _destinationRegion = nil;
-        [self showDestinationLabel:_destinationMapElement.name];
-        [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
+        location = [_destinationMapElement.location CGPointValue];
+        floor = _destinationRegion.floor;
+        label = _destinationMapElement.name;
     } else if ([item isKindOfClass:[NSDictionary class]]) {
         NSDictionary* dict = item;
         NSString* name = [dict objectForKey:@"title"];
         _destinationMapElement = [_map mapElementWithName:name closestToLocation:_origin inFloor:_currentFloor];
         _destinationRegion = nil;
-        if (_destinationMapElement) {
-            [self showDestinationLabel:_destinationMapElement.name];
-            [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
-        }
+        if (!_destinationMapElement)
+            return;
+        location = [_destinationMapElement.location CGPointValue];
+        floor = _destinationRegion.floor;
+        label = _destinationMapElement.name;
     } else if ([item isKindOfClass:[NSString class]]) {
         NSString* name = item;
         _destinationMapElement = [_map mapElementWithName:name closestToLocation:_origin inFloor:_currentFloor];
         _destinationRegion = nil;
-        if (_destinationMapElement) {
-            [self showDestinationLabel:_destinationMapElement.name];
-            [_mapView scrollToLocation:[_destinationMapElement.location CGPointValue] animated:YES];
-        }
+        if (!_destinationMapElement)
+            return;
+        location = [_destinationMapElement.location CGPointValue];
+        floor = _destinationRegion.floor;
+        label = _destinationMapElement.name;
     }
     
+    [self showDestinationLabel:label];
     _currentPathView.hidden = NO;
     self.searchDisplayController.active = NO;
+    
+    NSUInteger index = [_floors indexOfObject:floor];
+    if (index != NSNotFound)
+        self.currentFloorIndex = index;
+
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        [self setDestinationLocation:location onFloor:floor];
+        [_mapView scrollToLocation:location animated:YES];
+    });
 }
 
 
