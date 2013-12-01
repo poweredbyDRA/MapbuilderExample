@@ -24,7 +24,7 @@
 #import "MBNetworking.h"
 #import "MBVenuesViewController.h"
 
-#define API_KEY @"d3cca6c73f236170cf86dec424bfdfa3"
+#define API_KEY @"YOUR API KEY"
 
 
 @implementation MBAppDelegate
