@@ -99,7 +99,7 @@
     if (_currentFloor.label)
         _floorLabel.text = [NSString stringWithFormat:@"%@", _currentFloor.label];
     else
-        _floorLabel.text = [NSString stringWithFormat:@"%d", index];
+        _floorLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)index];
     
     if (self.isViewLoaded) {
         [self createMapElements];
