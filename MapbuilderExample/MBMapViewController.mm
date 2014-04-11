@@ -269,6 +269,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     _mapView.map = _map;
     _mapView.floor = _currentFloor;
