@@ -71,7 +71,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B80043E88DB41A4918FABF5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		10CFEB6688D609530E42BD19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6A156D32D6B7BA4805B37CCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A908002A174C6C64000B36CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A908002C174C6C77000B36CC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		A91AA40D17DADEB5008017F0 /* MBElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBElementView.h; sourceTree = "<group>"; };
@@ -199,6 +200,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6FE8934DC3FA0E37DC7CAC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10CFEB6688D609530E42BD19 /* Pods.debug.xcconfig */,
+				6A156D32D6B7BA4805B37CCE /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A91AA40C17DADEB5008017F0 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +273,7 @@
 				A987EDB116FF694400432A6B /* MapbuilderExample */,
 				A987ED7616FBE54100432A6B /* Frameworks */,
 				A987ED7516FBE54100432A6B /* Products */,
-				0B80043E88DB41A4918FABF5 /* Pods.xcconfig */,
+				A6FE8934DC3FA0E37DC7CAC7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,7 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -580,6 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SRCROOT)/libs/OX/Source",
 					"$(SRCROOT)/libs/savage/savage",
 				);
@@ -608,6 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SRCROOT)/libs/OX/Source",
 					"$(SRCROOT)/libs/savage/savage",
 				);
@@ -620,18 +632,13 @@
 		};
 		A987EDC716FF694400432A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B80043E88DB41A4918FABF5 /* Pods.xcconfig */;
+			baseConfigurationReference = 10CFEB6688D609530E42BD19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapbuilderExample/MapbuilderExample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"${SRCROOT}/Pods/Headers",
 					"${SRCROOT}",
 				);
 				INFOPLIST_FILE = "MapbuilderExample/MapbuilderExample-Info.plist";
@@ -647,18 +654,13 @@
 		};
 		A987EDC816FF694400432A6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B80043E88DB41A4918FABF5 /* Pods.xcconfig */;
+			baseConfigurationReference = 6A156D32D6B7BA4805B37CCE /* Pods.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapbuilderExample/MapbuilderExample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"${SRCROOT}/Pods/Headers",
 					"${SRCROOT}",
 				);
 				INFOPLIST_FILE = "MapbuilderExample/MapbuilderExample-Info.plist";
@@ -667,7 +669,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MapbuilderSDK\"",
 				);
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
