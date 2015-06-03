@@ -26,7 +26,7 @@
 #import "MBRegion+Mapping.h"
 
 #define MB_HOST @"poweredbydra.com"
-#define MB_SCHEME @"https"
+#define MB_SCHEME @"http"
 
 
 @implementation MBNetworking
