@@ -10,6 +10,10 @@
 	<string>MapbuilderExample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>030F686C7F79E3504F56FDC3512E1A1030AFEAE1</key>
+		<string>poweredbydra.com:MapbuilderSDK-iOS-Private</string>
+		<key>6B9A7E45FA97810C5CD163697F85BF00587F2366</key>
+		<string>mallrat.ca:savage</string>
 		<key>ECBC9E538EB84F8DAE8391F351EF7A3EAB58DE46</key>
 		<string>ssh://github.com/poweredbyDRA/MapbuilderExample.git</string>
 	</dict>
@@ -17,6 +21,10 @@
 	<string>MapbuilderExample.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>030F686C7F79E3504F56FDC3512E1A1030AFEAE1</key>
+		<string>../../MapbuilderSDK-iOS-Private</string>
+		<key>6B9A7E45FA97810C5CD163697F85BF00587F2366</key>
+		<string>../../MapbuilderSDK-iOS-Private/savage</string>
 		<key>ECBC9E538EB84F8DAE8391F351EF7A3EAB58DE46</key>
 		<string>..</string>
 	</dict>
@@ -35,6 +43,22 @@
 			<string>ECBC9E538EB84F8DAE8391F351EF7A3EAB58DE46</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MapbuilderExample</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>030F686C7F79E3504F56FDC3512E1A1030AFEAE1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MapbuilderSDK-iOS-Private</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6B9A7E45FA97810C5CD163697F85BF00587F2366</string>
+			<key>IDESourceControlWCCName</key>
+			<string>savage</string>
 		</dict>
 	</array>
 </dict>

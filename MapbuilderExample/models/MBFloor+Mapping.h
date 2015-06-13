@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MBFloor.h"
+#import <MapbuilderSDK/MBFloor.h>
 
 @interface MBFloor (Mapping) <EKMappingProtocol>
 

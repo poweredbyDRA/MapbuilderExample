@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MBMapAnnotation.h"
+#import <MapbuilderSDK/MBMapAnnotation.h>
 #import <UIKit/UIKit.h>
 
 @class MBMap;

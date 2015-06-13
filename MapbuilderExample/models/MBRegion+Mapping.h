@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MBRegion.h"
+#import <MapbuilderSDK/MBRegion.h>
 
 @interface MBRegion (Mapping) <EKMappingProtocol>
 

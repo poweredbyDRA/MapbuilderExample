@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 
 #import "MBElementView.h"
-#import "MBMapElement.h"
+#import <MapbuilderSDK/MBMapElement.h>
 
 
 static NSString* const StoreBackgroundImageName = @"stores";

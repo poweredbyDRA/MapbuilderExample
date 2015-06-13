@@ -1,0 +1,6 @@
+framework module MapbuilderSDK {
+  umbrella header "MapbuilderSDK.h"
+
+  export *
+  module * { export * }
+}

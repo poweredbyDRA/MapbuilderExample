@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MBMap.h"
-#import "MBPolygon.h"
-#import "MBRegion.h"
+#import <MapbuilderSDK/MBMap.h>
+#import <MapbuilderSDK/MBPolygon.h>
+#import <MapbuilderSDK/MBRegion.h>
 #import "MBRegionLabel.h"
 #import <QuartzCore/QuartzCore.h>
 

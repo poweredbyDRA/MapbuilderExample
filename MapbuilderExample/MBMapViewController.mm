@@ -21,16 +21,17 @@
 
 #import "MBMapViewController.h"
 
+#import <MapbuilderSDK/MBFloor.h>
+#import <MapbuilderSDK/MBMap.h>
+#import <MapbuilderSDK/MBMapView.h>
+#import <MapbuilderSDK/MBMapElement.h>
+#import <MapbuilderSDK/MBPathList.h>
+#import <MapbuilderSDK/MBPolygon.h>
+#import <MapbuilderSDK/MBRegion.h>
+
 #import "MBElementView.h"
-#import "MBFloor.h"
-#import "MBMap.h"
-#import "MBMapView.h"
-#import "MBMapElement.h"
 #import "MBNetworking.h"
-#import "MBPathList.h"
 #import "MBPinView.h"
-#import "MBPolygon.h"
-#import "MBRegion.h"
 #import "MBRegionLabel.h"
 #import "MBRegionsViewController.h"
 

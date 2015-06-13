@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MBPolygon.h"
+#import <MapbuilderSDK/MBPolygon.h>
 
 @interface MBPolygon (Mapping) <EKMappingProtocol>
 
