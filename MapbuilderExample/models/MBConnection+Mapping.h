@@ -21,8 +21,8 @@
 
 #import "MBConnection.h"
 
-@interface MBConnection (Mapping)
+@interface MBConnection (Mapping) <EKMappingProtocol>
 
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

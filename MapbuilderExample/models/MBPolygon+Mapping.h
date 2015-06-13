@@ -21,8 +21,8 @@
 
 #import "MBPolygon.h"
 
-@interface MBPolygon (Mapping)
+@interface MBPolygon (Mapping) <EKMappingProtocol>
 
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

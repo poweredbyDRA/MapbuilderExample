@@ -24,13 +24,13 @@
 
 @implementation MBRegion (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBRegion class]];
-    [mapping mapFieldsFromDictionary:@{
+    [mapping mapPropertiesFromDictionary:@{
      @"id": @"regionID",
      @"name": @"name"
      }];
-    [mapping hasOneMapping:[MBPolygon mapping] forKey:@"polygon"];
+    [mapping hasOne:MBPolygon.class forKeyPath:@"polygon"];
     return mapping;
 }
 

@@ -25,16 +25,16 @@
 
 @implementation MBFloor (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBFloor class]];
-    [mapping mapFieldsFromArray:@[
+    [mapping mapPropertiesFromArray:@[
      @"label",
      @"main",
      @"position"
      ]];
-    [mapping mapFieldsFromDictionary:@{ @"id": @"floorID" }];
-    [mapping hasManyMapping:[MBRegion mapping] forKey:@"regions"];
-    [mapping hasManyMapping:[MBMapElement mapping] forKey:@"map_elements" forField:@"mapElements"];
+    [mapping mapPropertiesFromDictionary:@{ @"id": @"floorID" }];
+    [mapping hasMany:MBRegion.class forKeyPath:@"regions"];
+    [mapping hasMany:MBMapElement.class forKeyPath:@"map_elements" forProperty:@"mapElements"];
     return mapping;
 }
 

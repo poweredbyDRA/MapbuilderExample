@@ -21,8 +21,8 @@
 
 #import "MBRegion.h"
 
-@interface MBRegion (Mapping)
+@interface MBRegion (Mapping) <EKMappingProtocol>
 
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

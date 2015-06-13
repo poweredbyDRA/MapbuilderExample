@@ -1,4 +1,5 @@
-platform :ios, '5.0'
+platform :ios, '7.0'
 
 pod 'AFNetworking', '~> 1.0'
-pod 'EasyMapping', '0.5.5'
+pod 'EasyMapping', '~> 0.15.0'
+

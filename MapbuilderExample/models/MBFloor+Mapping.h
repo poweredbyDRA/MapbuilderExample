@@ -21,8 +21,8 @@
 
 #import "MBFloor.h"
 
-@interface MBFloor (Mapping)
+@interface MBFloor (Mapping) <EKMappingProtocol>
 
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

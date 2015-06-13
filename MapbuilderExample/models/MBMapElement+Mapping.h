@@ -21,8 +21,8 @@
 
 #import "MBMapElement.h"
 
-@interface MBMapElement (Mapping)
+@interface MBMapElement (Mapping) <EKMappingProtocol>
 
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

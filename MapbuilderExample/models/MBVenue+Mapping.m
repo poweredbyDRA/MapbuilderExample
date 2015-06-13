@@ -26,9 +26,9 @@
 
 @implementation MBVenue (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBVenue class]];
-    [mapping mapFieldsFromArray:@[
+    [mapping mapPropertiesFromArray:@[
      @"address",
      @"city",
      @"email",
@@ -40,9 +40,9 @@
      @"website",
      @"zipcode"
      ]];
-    [mapping mapFieldsFromDictionary:@{ @"id": @"venueID" }];
-    [mapping hasManyMapping:[MBFloor mapping] forKey:@"floors"];
-    [mapping hasManyMapping:[MBConnection mapping] forKey:@"connections"];
+    [mapping mapPropertiesFromDictionary:@{ @"id": @"venueID" }];
+    [mapping hasMany:MBFloor.class forKeyPath:@"floors"];
+    [mapping hasMany:MBConnection.class forKeyPath:@"connections"];
     return mapping;
 }
 

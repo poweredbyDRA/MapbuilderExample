@@ -23,22 +23,22 @@
 
 @implementation MBMapElement (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBMapElement class]];
-    [mapping mapFieldsFromArray:@[
+    [mapping mapPropertiesFromArray:@[
      @"name"
      ]];
-    [mapping mapFieldsFromDictionary:@{
+    [mapping mapPropertiesFromDictionary:@{
      @"id": @"mapElementID",
      }];
-    [mapping mapKey:@"location" toField:@"location" withValueBlock:^(NSString* key, NSString* value) {
+    [mapping mapKeyPath:@"location" toProperty:@"location" withValueBlock:^(NSString* key, NSString* value) {
         NSArray* components = [value componentsSeparatedByString:@","];
         CGPoint point;
         point.x = [[components[0] substringFromIndex:1] floatValue];
         point.y = [components[1] floatValue];
         return [NSValue valueWithCGPoint:point];
     }];
-    [mapping mapKey:@"type" toField:@"type" withValueBlock:(id)^(NSString* key, NSString* value) {
+    [mapping mapKeyPath:@"type" toProperty:@"type" withValueBlock:(id)^(NSString* key, NSString* value) {
         if ([value isEqualToString:@"store"])
             return @(MBMapElementStore);
         if ([value isEqualToString:@"kiosk"])

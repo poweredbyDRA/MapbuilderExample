@@ -21,9 +21,8 @@
 
 #import "MBVenue.h"
 
+@interface MBVenue (Mapping) <EKMappingProtocol>
 
-@interface MBVenue (Mapping)
-
-+ (EKObjectMapping*)mapping;
++ (EKObjectMapping*)objectMapping;
 
 @end

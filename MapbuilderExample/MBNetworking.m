@@ -75,7 +75,7 @@
             return;
         }
         
-        NSArray* venues = [EKMapper arrayOfObjectsFromExternalRepresentation:venueDicts withMapping:[MBVenue mapping]];
+        NSArray* venues = [EKMapper arrayOfObjectsFromExternalRepresentation:venueDicts withMapping:[MBVenue objectMapping]];
         if (success)
             success(venues);
     } failure:^(AFHTTPRequestOperation* op, NSError* error) {
@@ -105,7 +105,7 @@
             return;
         }
         
-        [EKMapper fillObject:venue fromExternalRepresentation:venueDict withMapping:[MBVenue mapping]];
+        [EKMapper fillObject:venue fromExternalRepresentation:venueDict withMapping:[MBVenue objectMapping]];
         
         if (success)
             success(venue);
@@ -136,7 +136,7 @@
             return;
         }
         
-        [EKMapper fillObject:venue fromExternalRepresentation:venueDict withMapping:[MBVenue mapping]];
+        [EKMapper fillObject:venue fromExternalRepresentation:venueDict withMapping:[MBVenue objectMapping]];
         
         // Fill parent references
         for (MBConnection* c in venue.connections)
@@ -178,7 +178,7 @@
             return;
         }
         
-        NSArray* regions = [EKMapper arrayOfObjectsFromExternalRepresentation:[regionsDict objectForKey:@"regions"] withMapping:[MBRegion mapping]];
+        NSArray* regions = [EKMapper arrayOfObjectsFromExternalRepresentation:[regionsDict objectForKey:@"regions"] withMapping:[MBRegion objectMapping]];
        
         if (success)
             success(regions);

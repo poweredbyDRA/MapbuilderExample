@@ -23,13 +23,13 @@
 
 @implementation MBPolygon (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBPolygon class]];
-    [mapping mapFieldsFromArray:@[
+    [mapping mapPropertiesFromArray:@[
      @"label",
      @"vertices"
      ]];
-    [mapping mapFieldsFromDictionary:@{
+    [mapping mapPropertiesFromDictionary:@{
      @"id": @"polygonID",
      @"group_name": @"group",
      }];

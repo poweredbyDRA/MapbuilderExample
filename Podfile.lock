@@ -1,13 +1,15 @@
 PODS:
   - AFNetworking (1.3.4)
-  - EasyMapping (0.5.5)
+  - EasyMapping (0.15.0):
+    - EasyMapping/Core (= 0.15.0)
+  - EasyMapping/Core (0.15.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.0)
-  - EasyMapping (= 0.5.5)
+  - EasyMapping (~> 0.15.0)
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
-  EasyMapping: 66ac2615db2a9b0bcacc01a11ca0ed15e5a69b80
+  EasyMapping: 1937564acb37f8fff8f20e3e06a7dd228dc5e1d0
 
 COCOAPODS: 0.37.2

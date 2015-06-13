@@ -23,9 +23,9 @@
 
 @implementation MBConnection (Mapping)
 
-+ (EKObjectMapping*)mapping {
++ (EKObjectMapping*)objectMapping {
     EKObjectMapping* mapping = [[EKObjectMapping alloc] initWithObjectClass:[MBConnection class]];
-    [mapping mapFieldsFromDictionary:@{
+    [mapping mapPropertiesFromDictionary:@{
      @"source_id": @"sourceID",
      @"target_id": @"targetID",
      }];
